@@ -1,14 +1,21 @@
 <body style="background-color: #00B259;">
+  <img _ngcontent-c5="" class="ng-tns-c5-1" alt="" src="https://uploads.ze2019.com/blog_post/thumbnail_image/2019/04/4 (41).jpg">  
 <h1 style="line-height: 60px;
     font-size: 36px;
     text-align: center;
     color: #FFFFFF;
-    font-family: "Neue Haas Unica W1G", sans-serif;"> <span id="promise">Ахметов сяде</span>:  <span id="time">05:00</span></h1>
+    font-family: "Neue Haas Unica W1G", sans-serif;"> <span id="promise"></span> через:  <span id="time"></span></h1>
 <br />
 </body>
 
 <script>
-    var promises = ['Ахметов сяде через', 'Доллар буде по 8', 'Війна скінчиться через'];
+    var promises = [
+        'Ахметов сяде через', 
+        'Доллар буде по 8', 
+        'Війна скінчиться ' , 
+        'Комуналка знизиться',
+        'Медведчук сяде'
+    ];
     var promise = promises[Math.floor(Math.random() * promises.length)];
      document.getElementById("promise").innerHTML = promise;
 // Set the date we're counting down to
