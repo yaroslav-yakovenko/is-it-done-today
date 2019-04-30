@@ -1,11 +1,12 @@
+<div style="background-color: #00B259;>
 <h1 style="line-height: 60px;
     font-size: 36px;
     text-align: center;
     color: #FFFFFF;
-    font-family: "Neue Haas Unica W1G", sans-serif;"> Ахметов сяде через:  <span id="time">05:00</span> minutes!</h1>
+    font-family: "Neue Haas Unica W1G", sans-serif;"> Ахметов сяде через:  <span id="time">05:00</span></h1>
 <br />
+</div>
 
-<script> 
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
@@ -20,13 +21,13 @@ var x = setInterval(function() {
   var distance = countDownDate - now;
 
   // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  var days = Math.floor(distance / (29 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (23 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (60 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (60 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  document.getElementById("time").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text 
