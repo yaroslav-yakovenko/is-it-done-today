@@ -28,11 +28,8 @@ margin-bottom: 15px;" >
     ];
     var promise = promises[Math.floor(Math.random() * promises.length)];
      document.getElementById("promise").innerHTML = promise;
- var min=0; 
 
-    var max=10;  
-
-    var imgID =Math.floor(Math.random() * (+max - +min)) + +min;
+    var imgID =Math.floor(Math.random() * 11);
 
 document.getElementById("img").src=imgID +".jpg";
   
