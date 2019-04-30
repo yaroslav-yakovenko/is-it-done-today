@@ -6,6 +6,7 @@
     font-size: 36px;
     text-align: center;
     color: #FFFFFF;
+           margin-top: 15px;
     font-family: "Neue Haas Unica W1G", sans-serif;"> <span id="promise"></span> через:  <span id="time" style=display: inline-block;
     width: 275px;></span></h1>
 <br />
@@ -13,9 +14,9 @@
 
 <script>
     var promises = [
-        'Ахметов сяде через', 
+        'Ахметов сяде', 
         'Доллар буде по 8', 
-        'Війна скінчиться ' , 
+        'Війна скінчиться' , 
         'Комуналка знизиться',
         'Медведчук сяде'
     ];
@@ -43,8 +44,8 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("time").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  document.getElementById("time").innerHTML = days + "д " + hours + "г "
+  + minutes + "х " + seconds + "с ";
 
   // If the count down is finished, write some text 
   if (distance < 0) {
