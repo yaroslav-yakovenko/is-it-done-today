@@ -3,11 +3,14 @@
     font-size: 36px;
     text-align: center;
     color: #FFFFFF;
-    font-family: "Neue Haas Unica W1G", sans-serif;"> Ахметов сяде через:  <span id="time">05:00</span></h1>
+    font-family: "Neue Haas Unica W1G", sans-serif;"> <span id="promise">Ахметов сяде</span>:  <span id="time">05:00</span></h1>
 <br />
 </body>
 
 <script>
+    var promises = ['Ахметов сяде через', 'Доллар буде по 8', 'Війна скінчиться через'];
+    var promise = promises[Math.floor(Math.random() * promises.length)];
+     document.getElementById("promise").innerHTML = promise;
 // Set the date we're counting down to
 var countDownDate = new Date("Jun 5, 2019 15:37:25").getTime();
 
