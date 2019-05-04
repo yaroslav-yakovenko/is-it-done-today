@@ -26,27 +26,8 @@ margin-bottom: 15px;" >
 </body>
 
 <script>
-
  
- var getPromiseId = function () {
-var promise = promises[Math.floor(Math.random() * promises.length)];
-if (sessionStorage.promise = promise) {
-  getPromiseId();
-} else {
-  sessionStorage.promise = promise;
-return promise;
-}
-} 
-var getImageId = function () {
-var image =Math.floor(Math.random() * 11);
-if (sessionStorage.image = image) {
-  getImageId();
-} else {
-  sessionStorage.image = image;
-return image;
-}
-} 
-    var promises = [
+var promises = [
         'Ахметов сяде', 
         'Доллар буде по 8', 
         'Війна скінчиться' , 
@@ -57,9 +38,12 @@ return image;
 'Все буде Зе! Шибісь', 
 'Стане видно, хто де крав' 
     ];
-    var promise = getPromiseId();
+ 
+ 
+
+    var promise = promises[Math.floor(Math.random() * promises.length)];
      document.getElementById("promise").innerHTML = promise;
-    var imgID = getImageId() 
+    var imgID = Math.floor(Math.random() * 11);
 document.getElementById("img").src=imgID +".jpg";
   
 var countDownDate = new Date("May 19, 2019 12:00:00").getTime();
@@ -73,11 +57,7 @@ var x = setInterval(function() {
   document.getElementById("time").innerHTML = days + "д " + hours + "г "
   + minutes + "х " + seconds + "с ";
 
-  // If the count down is finished, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("time").innerHTML = "EXPIRED";
-  }
+
 }, 1000);
   
 </script>    
