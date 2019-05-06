@@ -1,72 +1,135 @@
-<head>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-<title>Чи це вже зроблено? Зе!Обіцянки</title>
-</head>
-<body style="background-color: #00B259;
- text-align: center;
-margin-top: 10%;
-    color: #FFFFFF;">
- <h1 style="font-size:34px; 
-margin-bottom: 15px;" >
-Ні обіцянок, ні пробачень
-</h1>
-<h1> 
-     <img style="border: 3px solid white;" with="500" id="img" src="1.jpg">  
-  </h1>
-<h1 style=" margin-top: 10%; font-size: 42px;"> 
-<span id="promise"></span> через:</h1>  
-<h1 id="time" ></h1>
 
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Чи це вже зроблено? Зе!Обіцянки</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+
+        html,
+        body {
+            height: 100%;
+            background-color: #00B259;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            color: #fff;
+            text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+            margin-top: 2rem;
+        }
+
+        .cover-container {
+            max-width: 42em;
+        }
+
+        .masthead {
+            margin-bottom: 2rem;
+        }
+
+        .masthead-brand {
+            margin-bottom: 0;
+        }
+
+        .cover {
+            padding: 0 1.5rem;
+        }
+         .cover-heading {
+             margin-top: 2rem;
+         }
+    </style>
+</head>
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead">
+        <div class="inner">
+            <h3 class="masthead-brand">Ні обіцянок, ні пробачень</h3>
+        </div>
+    </header>
+    <main role="main" class="inner cover">
+        <div>
+            <img style="border: 3px solid white; width: 600px;" with="500" id="img" src="1.jpg">
+        </div>
+        <h2 class="cover-heading"><span id="promise"></span> через:</h2>
+        <p  id="time" class="lead"></p>
+    </main>
+</div>
 </body>
 
 <script>
- 
-var promises = [
-        'Ахметов сяде', 
-        'Доллар буде по 8', 
-        'Війна скінчиться' , 
+
+    let promises = [
+        'Ахметов сяде',
+        'Доллар буде по 8',
+        'Війна скінчиться' ,
         'Комуналка знизиться',
-        'Медведчук сяде', 
-'Корупціонери зникнуть', 
-'Зарплати по 4000 долларів у вчителів будуть', 
-'Все буде Зе! Шибісь', 
-'Стане видно, хто де крав' 
+        'Медведчук сяде',
+        'Корупціонери зникнуть',
+        'Зарплати по 4000 долларів у вчителів будуть',
+        'Все буде Зе!Шибісь',
+        'Стане видно, хто де крав'
     ];
- 
- 
-
-    var promise = promises[Math.floor(Math.random() * promises.length)];
-     document.getElementById("promise").innerHTML = promise;
-    var imgID = Math.floor(Math.random() * 11);
-document.getElementById("img").src=imgID +".jpg";
-  
-var countDownDate = new Date("May 19, 2019 12:00:00").getTime();
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("time").innerHTML = days + "д " + hours + "г "
-  + minutes + "х " + seconds + "с ";
 
 
-}, 1000);
-  
-</script>    
+    let getPromiseId = function () {
+        let promise = promises[Math.floor(Math.random() * promises.length)];
+        if (sessionStorage.promise != undefined && sessionStorage.promise == promise) {
+            getPromiseId();
+        } else {
+            sessionStorage.promise = promise;
+            document.getElementById("promise").innerHTML = promise ;
+        }
+    };
+
+    let getImageId = function () {
+        let image = Math.floor(Math.random() * 20);
+        if (sessionStorage.image != undefined && sessionStorage.image == image) {
+            getImageId();
+        } else {
+            sessionStorage.image = image;
+            document.getElementById("img").src='img/' + image  +".jpg";
+        }
+    };
+
+    getImageId();
+    getPromiseId();
+
+    let countDownDate = new Date("May 19, 2019 12:00:00").getTime();
+    let x = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = countDownDate - now;
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("time").innerHTML = days + "д " + hours + "г "
+            + minutes + "х " + seconds + "с ";
+
+
+    }, 1000);
+
+</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139558480-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'UA-139558480-1');
+    gtag('config', 'UA-139558480-1');
 </script>
+
+</html>
